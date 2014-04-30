@@ -2,6 +2,7 @@
 Hidden Markov Model
 ###
 console.log '''
+
 -------------------
 Hidden Markov Model
 -------------------
@@ -46,6 +47,7 @@ for i in [0...results[1].length]
 Support Vector Model
 ###
 console.log '''
+
 --------------------
 Support Vector Model
 --------------------
@@ -98,10 +100,38 @@ for i in [0...N]
 
 
 ###
+Chi Square Test
+|             | Heart Rate Increased | No Heart Rate Increase |     |
+|-------------|----------------------|------------------------|-----|
+| Treated     | 36                   | 14                     | 50  |
+| Not treated | 30                   | 25                     | 55  |
+| Total       | 66                   | 39                     | 105 |
+###
+
+console.log '''
+
+-------------------
+Chi Square Test
+-------------------
+'''
+sd = require './libs/statistics-distributions'
+a = 36
+b = 14
+c = 29
+d = 26
+n = 105
+cv = (n * Math.pow((a*d)-(b*c), 2)) / ((a+b)*(c+d)*(a+c)*(b+d))
+console.log 'Crtical Value: %d', cv
+chi = sd.chisqrprob(1, cv)
+console.log 'Probability: p = %d, p < 0.05 as a significant difference', chi
+
+
+###
 K-means
 ###
 
 console.log '''
+
 -------------------
 K-means
 -------------------
