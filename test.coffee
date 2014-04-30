@@ -7,7 +7,7 @@ Hidden Markov Model
 -------------------
 '''
 
-HMM = require './hmm'
+HMM = require './libs/hmm'
 states = [
     'Rainy',
     'Sunny'
@@ -107,7 +107,7 @@ K-means
 -------------------
 '''
 
-KMeans = require './kmeans'
+kmeans = require 'node-kmeans'
 
 # Data source: LinkedIn
 # Initial data are businesses that need to be clustered according to their size (nb of employees) and revenue (in mln$)
@@ -124,19 +124,13 @@ data = [
 # Create the labels and the vectors describing the data
 
 labels = new Array()
-vectors = new Object()
+vectors = new Array()
 
 for i in [0...data.length]
-    labels[i] = data[i]['company']
-    vectors[i] = 'x': data[i]['size'] , 'y': data[i]['revenue']
+    vectors[i] = [ data[i]['size'] , data[i]['revenue'] ]
 
-k = new KMeans()
-k.setPoints vectors
-k.guessK()
-k.initCentroids()
-
-if k.converged is yes
-
-else
-    k.cluster ->
-        console.log k.points
+kmeans.clusterize vectors, {k: 4}, (err,res) ->
+    if err
+        console.error err
+    else
+        console.log '%o', res

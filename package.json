@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "node-kmeans": "0.0.1",
     "svm": "^0.1.1"
   }
 }
