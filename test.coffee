@@ -137,6 +137,12 @@ sd = require './libs/statistics-distributions'
 #         expected = rsum * csum / n
 #         cv += Math.pow(data[i][j] - expected, 2) / expected
 
+# |              | No Heart Rate | Heart Rate Increased | Total |
+# |--------------|---------------|----------------------|-------|
+# | Treated      | 36            |14                    | 50    |
+# | Not treated  | 30            |25                    | 55    |
+# |--------------|---------------|----------------------|-------|
+# | Total        | 66            |39                    | 105   |
 
 a = 36
 b = 14
