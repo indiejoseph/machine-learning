@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "alike": "^1.2.0",
+    "bayes": "0.0.2",
     "node-kmeans": "0.0.1",
-    "svm": "^0.1.1"
+    "node-svm": "^1.2.1"
   }
 }
